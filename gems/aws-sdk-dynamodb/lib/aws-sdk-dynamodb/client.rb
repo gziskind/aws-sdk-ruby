@@ -184,14 +184,14 @@ module Aws::DynamoDB
     #
     #     @see https://www.awsarchitectureblog.com/2015/03/backoff.html
     #
-    #   @option options [Integer] :retry_limit (10)
+    #   @option options [Integer] :retry_limit (3)
     #     The maximum number of times to retry failed requests.  Only
     #     ~ 500 level server errors and certain ~ 400 level client errors
     #     are retried.  Generally, these are throttling errors, data
     #     checksum errors, networking errors, timeout errors and auth
     #     errors from expired credentials.
     #
-    #   @option options [Integer] :retry_limit (3)
+    #   @option options [Integer] :retry_limit (10)
     #     The maximum number of times to retry failed requests.  Only
     #     ~ 500 level server errors and certain ~ 400 level client errors
     #     are retried.  Generally, these are throttling errors, data
