@@ -151,7 +151,14 @@ module Aws
     end
 
     def open_connection
-      http = Net::HTTP.new(@ip_address, @port, nil)
+      proxy_host = nil
+      proxy_port = nil
+      if(Aws.config[:http_proxy])
+        proxy_url = URI(Aws.config[:http_proxy])
+        proxy_host = proxy_url.host
+        proxy_port = proxy_url.port
+      end
+      http = Net::HTTP.new(@ip_address, @port, proxy_host, proxy_port)
       http.open_timeout = @http_open_timeout
       http.read_timeout = @http_read_timeout
       http.set_debug_output(@http_debug_output) if @http_debug_output
